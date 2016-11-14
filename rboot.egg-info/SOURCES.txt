@@ -1,3 +1,4 @@
+setup.cfg
 setup.py
 rboot/__init__.py
 rboot.egg-info/PKG-INFO
