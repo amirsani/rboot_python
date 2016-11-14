@@ -6,6 +6,6 @@ setup(name='rboot',
       url='http://www.amirsani.com',
       author='Amir Sani',
       author_email='reachme@amirsani.com',
-      license='None',
+      download_url='github.com:amirsani/rboot_python.git',
       packages=['rboot'],
       zip_safe=False)
