@@ -68,7 +68,7 @@ def replacement_bootstrap(series, bootstraps, seed=1978, replacement_percentage=
     assert 0.0 < bootstraps, "bootstraps must be greater than 0"
     
     # Set the seed
-    np.random.seed(seed)
+    np.random.seed(int(seed))
 
     # Get the length of the original real numbered series
     T = series.shape[0]

@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='rboot',
-      version='0.01.01',
+      version='0.01.02',
       description='Replacment Bootstrap',
       url='http://www.amirsani.com',
       author='Amir Sani',
