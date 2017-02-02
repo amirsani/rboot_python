@@ -26,4 +26,8 @@ rho - Concentration control. rho closer to 0 concentrates bootstraps towards the
 See notebook example in example notebook folder.
 
 
+
+[![DOI](https://zenodo.org/badge/73730223.svg)](https://zenodo.org/badge/latestdoi/73730223)
+
+
 Copyright Amir Sani 2016
