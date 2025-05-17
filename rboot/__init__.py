@@ -5,8 +5,15 @@ import warnings
 warnings.warn = warn
 
 import numpy as np
-import lz4
 import struct
+try:
+    import lz4.frame as lz4
+    def _compress(s: str) -> bytes:
+        return lz4.compress(s.encode('utf-8'))
+except Exception:  # pragma: no cover - optional dependency missing
+    import zlib
+    def _compress(s: str) -> bytes:
+        return zlib.compress(s.encode('utf-8'))
 
 def bin_to_float(b):
     """ Convert binary string to a float. """
@@ -38,8 +45,11 @@ def compute_probabilities(replacement_idx, a, conditional_binary):
     number as bit a replacing the number as bit in 
     position replacement_idx
     """
+    original = conditional_binary[replacement_idx]
     conditional_binary[replacement_idx] = a
-    return len(lz4.compress(''.join(conditional_binary))) #54.65
+    comp_len = len(_compress(''.join(conditional_binary)))
+    conditional_binary[replacement_idx] = original
+    return comp_len
 
 def get_replacement_dist(replacement_idx,conditional_binary,bit_series):
     # Compute the probability distribution for a specific replacement index over the alphabet of possible replacements realized in the given series
